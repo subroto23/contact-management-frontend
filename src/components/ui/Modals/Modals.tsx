@@ -23,16 +23,23 @@ const Modals = ({ isOpen, onClose, children }: TModal) => {
       <Portals>
         <div
           className={cn(
-            `fixed inset-0 z-[999] flex justify-center items-center bg-gray-500/70 invisible`,
-            {
-              visible: isOpen,
-            }
+            `fixed inset-0 z-[999] flex justify-center items-center bg-gray-500/70 overflow-auto transition-opacity`,
+            { "opacity-100 visible": isOpen, "opacity-0 invisible": !isOpen }
           )}
+          style={{
+            height: isOpen ? "100vh" : "0",
+            transition: "height 0.3s ease",
+          }}
         >
           <div
             ref={containerRef}
             onClick={handleOutSideClose}
-            className="bg-white w-full max-w-sm rounded-sm p-2"
+            className={cn(
+              "bg-white w-full max-w-sm md:max-w-md lg:max-w-lg p-2 rounded-md shadow-lg transition-all duration-300 overflow-x-hidden",
+              {
+                "h-auto max-h-[90vh] overflow-y-auto overflow-x-hidden": isOpen,
+              }
+            )}
           >
             <Modals.CloseButton />
             {children}

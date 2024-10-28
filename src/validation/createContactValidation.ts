@@ -63,3 +63,55 @@ export const ContactZodValidation = z.object({
     })
     .nonempty("Profile Photo Url is Required"),
 });
+
+//--------------Update -----------------------
+const updateUserNameValidationSchema = z.object({
+  firstName: z
+    .string({
+      invalid_type_error: "First name must be a string.",
+    })
+    .trim()
+    .optional(),
+  middleName: z.string().optional(),
+  lastName: z
+    .string({
+      invalid_type_error: "Last name must be a string.",
+    })
+    .trim()
+    .optional(),
+});
+
+// User Address Schema
+const updateUserAddressValidationSchema = z.object({
+  city: z
+    .string({
+      invalid_type_error: "City name must be a string.",
+    })
+    .trim()
+    .optional(),
+  country: z
+    .string({
+      invalid_type_error: "Country name must be a string.",
+    })
+    .trim()
+    .optional(),
+});
+// update Contact Validation Schema
+export const updateZodValidation = z.object({
+  name: updateUserNameValidationSchema,
+  email: z.string().optional(),
+  phone: z
+    .string()
+    .trim()
+    .trim()
+    .refine((val) => /^[+]?[0-9]*$/.test(val), {
+      message: "Phone number must contain only digits and optional leading +.",
+    })
+    .optional(),
+  address: updateUserAddressValidationSchema,
+  profile_picture: z
+    .string({
+      invalid_type_error: "Profile Photo Is Web Link Type.",
+    })
+    .optional(),
+});

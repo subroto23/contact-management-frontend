@@ -1,4 +1,4 @@
-import { TInputForm } from "./Types";
+import { TInputForm } from "@/components/Types";
 
 const InputForm = ({
   label,

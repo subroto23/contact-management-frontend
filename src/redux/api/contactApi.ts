@@ -37,7 +37,7 @@ const contactApi = baseApi.injectEndpoints({
 
     //Delete Contact
     deleteContact: build.mutation({
-      query: ({ id }) => ({
+      query: (id) => ({
         url: `/${id}`,
         method: "DELETE",
       }),
@@ -49,8 +49,10 @@ const contactApi = baseApi.injectEndpoints({
       query: ({ id, ...data }) => ({
         url: `/update-contact/${id}`,
         method: "PATCH",
-        data,
-        contentType: "application/json",
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
       invalidatesTags: [TagTypes.CONTACT],
     }),

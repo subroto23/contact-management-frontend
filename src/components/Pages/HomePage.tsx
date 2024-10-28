@@ -1,7 +1,7 @@
-import { TContactPayloadData } from "@/components/Types";
-import ContactsCard from "@/components/ui/ContactsCard/ContactsCard";
+import { TContactPayloadData } from "../Types";
+import ContactsCard from "../ui/ContactsCard/ContactsCard";
 
-const HomePage = async () => {
+const AllContacts = async () => {
   const data = await fetch(process.env.NEXT_PUBLIC_BACKEND_API as string, {
     next: { revalidate: 10 },
   });
@@ -18,4 +18,4 @@ const HomePage = async () => {
   );
 };
 
-export default HomePage;
+export default AllContacts;
