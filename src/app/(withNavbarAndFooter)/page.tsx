@@ -1,10 +1,10 @@
-import Button from "@/components/ui/Button/Button";
+import HomepageTesting from "@/components/HomepageTesting";
 
 const page = () => {
   return (
     <>
       <h1>This Is Home Page</h1>
-      <Button varient="solid">Click Me</Button>
+      <HomepageTesting />
     </>
   );
 };
