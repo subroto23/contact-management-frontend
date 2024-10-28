@@ -7,8 +7,10 @@ const contactApi = baseApi.injectEndpoints({
       query: (data) => ({
         url: "/create-contact",
         method: "POST",
-        data,
-        contentType: "multipart/form-data",
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+        },
       }),
       invalidatesTags: [TagTypes.CONTACT],
     }),

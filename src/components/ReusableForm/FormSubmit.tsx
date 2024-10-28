@@ -3,7 +3,7 @@ import Button from "../ui/Button/Button";
 import { useContext } from "react";
 import { FormDoubleValueContext } from "./Form";
 
-export const FormSubmit = () => {
+export const FormSubmit = ({ isLoading }: { isLoading: boolean }) => {
   const { double } = useContext(FormDoubleValueContext) as any;
   return (
     <>
@@ -17,7 +17,7 @@ export const FormSubmit = () => {
       >
         <div className="w-full max-w-md col-start-1 md:col-start-2 flex justify-end my-8">
           <Button className="w-full md:w-fit" type="submit">
-            Submit
+            {isLoading ? "Submitting..." : "Submit"}
           </Button>
         </div>
       </div>
