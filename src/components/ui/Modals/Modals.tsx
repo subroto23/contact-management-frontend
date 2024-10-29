@@ -56,7 +56,7 @@ const CloseButton = () => {
   return (
     <span
       onClick={() => onClose()}
-      className="flex justify-end mr-2 text-red-600 hover:text-red-500 cursor-pointer"
+      className="flex justify-end mr-2 md-range:mt-4 mt-24 md:mt-10 lg:mt-0 text-red-600 hover:text-red-500 cursor-pointer"
     >
       Close
     </span>

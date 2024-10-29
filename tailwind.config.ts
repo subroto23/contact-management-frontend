@@ -6,7 +6,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        "md-range": { min: "763px", max: "1023px" },
+      },
+    },
   },
   plugins: [require("@tailwindcss/forms")],
 };
