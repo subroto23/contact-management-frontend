@@ -11,13 +11,27 @@ import { updateZodValidation } from "@/validation/createContactValidation";
 import { toast } from "sonner";
 import { z } from "zod";
 import { removeEmptyKeyValues } from "@/utlis/removeEmptyKeyValues";
+import { useEffect } from "react";
 
 const UpdatedContactsCardForm = ({ id }: { id: string }) => {
-  const { data } = useGetSingleContactQuery({ id });
+  const { data } = useGetSingleContactQuery({
+    id,
+  });
+
   const [updateContact, { isLoading }] = useUpdateContactMutation();
-  //
+
+  // Default values
+  const defaultValues = {
+    name: { firstName: "", middleName: "", lastName: "" },
+    email: "",
+    phone: "",
+    address: { city: "", country: "" },
+    profile_picture: "",
+  };
+
   const methods = useForm<FormData>({
     resolver: zodResolver(updateZodValidation),
+    defaultValues: defaultValues,
   });
   const {
     register,
@@ -25,6 +39,26 @@ const UpdatedContactsCardForm = ({ id }: { id: string }) => {
     reset,
     formState: { errors },
   } = methods;
+
+  // Update form default values when data is fetched
+  useEffect(() => {
+    if (data?.data) {
+      reset({
+        name: {
+          firstName: data.data.name?.firstName || "",
+          middleName: data.data.name?.middleName || "",
+          lastName: data.data.name?.lastName || "",
+        },
+        email: data.data.email || "",
+        phone: data.data.phone || "",
+        address: {
+          city: data.data.address?.city || "",
+          country: data.data.address?.country || "",
+        },
+        profile_picture: data.data.profile_picture || "",
+      });
+    }
+  }, [data, reset]);
 
   // Define the schema type using zod's infer
   type FormData = z.infer<typeof updateZodValidation>;

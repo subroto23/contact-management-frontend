@@ -13,7 +13,7 @@ const ContactsCard = ({
   return (
     <div className="mx-auto p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
       <Image
-        className="rounded-xl"
+        className="rounded-xl object-cover origin-center w-[400px] h-[200px]"
         src={contact.profile_picture}
         alt={contact.name.firstName}
         width={500}
@@ -22,7 +22,7 @@ const ContactsCard = ({
       <div className="flex justify-between items-center">
         <div>
           <h1 className="mt-5 text-2xl font-semibold">
-            {contact.name.firstName} {contact.name.middleName}
+            {contact.name.firstName} {contact.name.middleName}{" "}
             {contact.name.lastName}
           </h1>
           <p className="">

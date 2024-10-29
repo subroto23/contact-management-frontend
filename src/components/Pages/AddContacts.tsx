@@ -64,7 +64,7 @@ const AddContactsPage = () => {
                 register={register("name.firstName")}
                 type={"text"}
                 label={"First Name"}
-                placeholder={"Subroto"}
+                placeholder={"Enter your first name"}
                 errors={errors?.name?.firstName?.message}
               />
 
@@ -73,7 +73,7 @@ const AddContactsPage = () => {
                 register={register("name.middleName")}
                 type={"text"}
                 label={"Middle Name"}
-                placeholder={"Kumar"}
+                placeholder={"Enter your first middle  name"}
                 errors={errors?.name?.middleName?.message}
               />
 
@@ -82,7 +82,7 @@ const AddContactsPage = () => {
                 register={register("name.lastName")}
                 type={"text"}
                 label={"Last Name"}
-                placeholder={"Das"}
+                placeholder={"Enter your last name"}
                 errors={errors?.name?.lastName?.message}
               />
               {/* Phone Number Input Form */}
@@ -90,7 +90,7 @@ const AddContactsPage = () => {
                 register={register("phone")}
                 type={"text"}
                 label={"Phone Number"}
-                placeholder={"+8801765777445"}
+                placeholder={"write phone number"}
                 errors={errors?.phone?.message}
               />
               {/* Email Name Input Form */}
@@ -114,7 +114,7 @@ const AddContactsPage = () => {
                 register={register("address.city")}
                 type={"text"}
                 label={"Your City"}
-                placeholder={"Faridpur"}
+                placeholder={"Enter your city name"}
                 errors={errors?.address?.city?.message}
               />
               {/* Address Country Input Form */}
@@ -122,7 +122,7 @@ const AddContactsPage = () => {
                 register={register("address.country")}
                 type={"text"}
                 label={"Your Country"}
-                placeholder={"Bangladesh"}
+                placeholder={"Enter your country name"}
                 errors={errors?.address?.country?.message}
               />
             </FormContainer>

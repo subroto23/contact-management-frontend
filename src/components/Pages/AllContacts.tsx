@@ -4,10 +4,6 @@ import { TContactPayloadData } from "../Types";
 import ContactsCard from "../ui/ContactsCard/ContactsCard";
 
 const AllContacts = () => {
-  //   const data = await fetch(process.env.NEXT_PUBLIC_BACKEND_API as string, {
-  //     next: { revalidate: 10 },
-  //   });
-  //   const contacts = await data.json();
   const { data, isLoading } = useGetAllContactsQuery({});
   return (
     <div className="min-h-screen bg-gray-100">

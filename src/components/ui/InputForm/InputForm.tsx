@@ -12,7 +12,13 @@ const InputForm = ({
       <label className="block font-semibold mb-1" htmlFor={label}>
         {label}
       </label>
-      <input type={type} id={label} {...register} placeholder={placeholder} />
+      <input
+        type={type}
+        id={label}
+        {...register}
+        placeholder={placeholder}
+        className=" placeholder:text-gray-300 "
+      />
       {errors && <span className="text-xs text-red-500">{errors}</span>}
     </div>
   );
