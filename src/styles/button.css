@@ -20,4 +20,8 @@
     @apply bg-purple-400 bg-opacity-0 hover:bg-opacity-20 focus:bg-opacity-20;
     @apply transition-all;
   }
+
+  .gredient-button {
+    @apply px-10 py-4 font-semibold hover:font-extrabold text-white rounded-3xl bg-gradient-to-r from-primaryColor to-secondaryColor hover:from-secondaryColor hover:to-primaryColor focus:bg-purple-500 transition-all;
+  }
 }

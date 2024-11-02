@@ -1,0 +1,29 @@
+@tailwind components;
+@tailwind utilities;
+/* Gredient Color */
+@layer utilities {
+  .bg-gradient {
+    background: linear-gradient(to bottom, #dc02d5 20%, #0ffbf9);
+  }
+}
+
+@layer components {
+  .banner-blur-container {
+    @apply absolute right-0 top-10 w-[500px] md:h-[350px] h-[250px] rounded-full bg-gradient blur-[120px] bg-blend-multiply;
+  }
+  .banner-overlay-container {
+    @apply absolute inset-0 bg-white p-5 m-4 rounded-2xl backdrop-blur-3xl opacity-5;
+  }
+  .pattern-image {
+    @apply absolute inset-0 max-w-xl ml-auto bg-cover bg-center top-10;
+  }
+  .first-hedding {
+    @apply md:text-6xl text-2xl font-extrabold uppercase tracking-widest md:mb-4 mb-1;
+  }
+  .effect-text {
+    @apply md:text-5xl text-xl font-bold uppercase tracking-tighter text-transparent bg-gradient-to-l from-primaryColor to-secondaryColor bg-clip-text;
+  }
+  .right-side-image {
+    @apply absolute inset-0 md:block hidden md-range:hidden max-w-xl ml-auto bg-contain bg-no-repeat bg-center top-10 mix-blend-luminosity;
+  }
+}

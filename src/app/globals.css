@@ -1,7 +1,26 @@
 @import "../styles/button.css";
 @import "../styles/typography.css";
 @import "../styles/forms.css";
+@import "../styles/banner.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+@layer components {
+  .body-color {
+    @apply bg-[#1E1E1E];
+  }
+  .primary-color {
+    @apply bg-[#DC02D5];
+  }
+  .secondary-color {
+    @apply bg-[#0FFBF9];
+  }
+}

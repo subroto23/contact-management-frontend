@@ -1,11 +1,9 @@
-import HomePageCard from "@/components/Pages/HomePage";
-import { TContactPayloadData } from "@/components/Types";
-import ContactsCard from "@/components/ui/ContactsCard/ContactsCard";
+import Banner from "@/components/Pages/HomePage/Banner/Banner";
 
 const HomePage = async () => {
   return (
     <>
-      <HomePageCard />
+      <Banner />
     </>
   );
 };

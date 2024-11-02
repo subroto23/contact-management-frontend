@@ -10,6 +10,11 @@ const config: Config = {
       screens: {
         "md-range": { min: "763px", max: "1023px" },
       },
+      colors: {
+        bodyColor: "#1E1E1E",
+        primaryColor: "#DC02D5",
+        secondaryColor: "#0FFBF9",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

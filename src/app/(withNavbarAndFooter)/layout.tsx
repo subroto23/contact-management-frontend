@@ -6,11 +6,11 @@ import React from "react";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Container>
         <div className=" overflow-x-hidden">{children}</div>
       </Container>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
