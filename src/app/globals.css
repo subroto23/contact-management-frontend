@@ -16,7 +16,7 @@ body {
 
 @layer components {
   .body-color {
-    @apply bg-[#1E1E1E];
+    @apply bg-[#0f0426];
   }
   .primary-color {
     @apply bg-[#DC02D5];

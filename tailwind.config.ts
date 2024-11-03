@@ -11,7 +11,8 @@ const config: Config = {
         "md-range": { min: "763px", max: "1023px" },
       },
       colors: {
-        bodyColor: "#1E1E1E",
+        bodyColor: "#0f0426",
+        // bodyColor: "#1E1E1E",
         primaryColor: "#DC02D5",
         secondaryColor: "#0FFBF9",
       },

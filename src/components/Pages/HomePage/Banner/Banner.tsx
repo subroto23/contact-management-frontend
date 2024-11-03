@@ -8,7 +8,6 @@ import {
 import pattern from "@/assets/images/Pattern.png";
 import manPhoto from "@/assets/images/manPhoto.png";
 import { motion } from "framer-motion";
-import EffectBanner from "../EffectBanner/EffectBanner";
 
 const Banner = () => {
   return (
