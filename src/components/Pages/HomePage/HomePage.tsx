@@ -1,7 +1,7 @@
 "use client";
 import { useGetAllContactsQuery } from "@/redux/api/contactApi";
-import { TContactPayloadData } from "../Types";
-import ContactsCard from "../ui/ContactsCard/ContactsCard";
+import ContactsCard from "@/components/ui/ContactsCard/ContactsCard";
+import { TContactPayloadData } from "@/components/Types";
 
 const HomePageCard = () => {
   // const data = await fetch(process.env.NEXT_PUBLIC_BACKEND_API as string, {
