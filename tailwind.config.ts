@@ -15,6 +15,9 @@ const config: Config = {
         primaryColor: "#DC02D5",
         secondaryColor: "#0FFBF9",
       },
+      fontFamily: {
+        josefin: ["Josefin Sans", "sans-serif"],
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
