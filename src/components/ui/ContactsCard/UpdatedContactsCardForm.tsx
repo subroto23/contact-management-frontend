@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { removeEmptyKeyValues } from "@/utlis/removeEmptyKeyValues";
 import { useEffect } from "react";
+import { defaultValues } from "@/defaultValues/updateContacts";
 
 const UpdatedContactsCardForm = ({ id }: { id: string }) => {
   const { data } = useGetSingleContactQuery({
@@ -19,15 +20,6 @@ const UpdatedContactsCardForm = ({ id }: { id: string }) => {
   });
 
   const [updateContact, { isLoading }] = useUpdateContactMutation();
-
-  // Default values
-  const defaultValues = {
-    name: { firstName: "", middleName: "", lastName: "" },
-    email: "",
-    phone: "",
-    address: { city: "", country: "" },
-    profile_picture: "",
-  };
 
   const methods = useForm<FormData>({
     resolver: zodResolver(updateZodValidation),

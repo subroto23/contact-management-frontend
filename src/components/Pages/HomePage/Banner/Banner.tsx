@@ -1,42 +1,81 @@
-import Image from "next/image";
+"use client";
+import {
+  backgroundImage,
+  blurColorAnimate,
+  textAnimateChild,
+  textAnimateParient,
+} from "@/animate/banner.animate";
 import pattern from "@/assets/images/Pattern.png";
 import manPhoto from "@/assets/images/manPhoto.png";
-import Button from "@/components/ui/Button/Button";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
-    <div className="relative h-full">
+    <div className="relative h-full overflow-hidden">
       {/* Background  */}
       <div>
-        <div className="banner-blur-container"></div>
+        <motion.div
+          variants={backgroundImage}
+          initial="hidden"
+          animate="animate"
+          className="banner-blur-container"
+        ></motion.div>
+        {/* Background overlay top*/}
         <div className="banner-overlay-container"></div>
+        <div className="absolute inset-0">
+          <div className="bg-white backdrop-blur-3xl opacity-5 w-full"></div>
+        </div>
       </div>
       {/* Background Image */}
-      <div
+      <motion.div
+        variants={blurColorAnimate}
+        initial="hidden"
+        animate="visible"
         className="pattern-image"
         style={{ backgroundImage: `url(${pattern.src})` }}
-      ></div>
-      <div className="md:py-16 pt-6">
+      ></motion.div>
+      <motion.div
+        variants={textAnimateParient}
+        initial="hidden"
+        animate="visible"
+        className="md:py-16 "
+      >
         {/*Left Content */}
-        <div className="py-6 px-10 col-span-2">
-          <h1 className="first-hedding">Your Way</h1>
-          <span className=" effect-text">Your Network</span>
-          <p className="md:text-2xl text-sm md:mt-5 mt-2 md:max-w-xl">
+        <motion.div
+          variants={textAnimateParient}
+          className="py-6 px-10 col-span-2"
+        >
+          <motion.h1 variants={textAnimateChild} className="first-hedding">
+            Your Way
+          </motion.h1>
+          <motion.span variants={textAnimateChild} className=" effect-text">
+            Your Network
+          </motion.span>
+          <motion.p
+            variants={textAnimateChild}
+            className="md:text-2xl text-sm md:mt-5 mt-2 md:max-w-xl"
+          >
             Effortlessly manage your contacts with a powerful tool designed to
             organize, streamline, and simplify all in one place, customized for
             you
-          </p>
+          </motion.p>
 
-          <div className="my-9 relative z-10">
+          <motion.div
+            variants={textAnimateChild}
+            className="my-9 relative z-10"
+          >
             <button className="gredient-button">See more</button>
-          </div>
-        </div>
-        {/*RightContent */}
-        <div
-          className="right-side-image"
-          style={{ backgroundImage: `url(${manPhoto.src})` }}
-        ></div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+      {/*RightContent */}
+      <motion.div
+        variants={backgroundImage}
+        initial="hidden"
+        animate="animate"
+        className="right-side-image"
+        style={{ backgroundImage: `url(${manPhoto.src})` }}
+      ></motion.div>
     </div>
   );
 };

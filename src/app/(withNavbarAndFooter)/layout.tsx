@@ -6,8 +6,8 @@ import React from "react";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      {/* <Navbar /> */}
       <Container>
+        <Navbar />
         <div className=" overflow-x-hidden">{children}</div>
       </Container>
       {/* <Footer /> */}
