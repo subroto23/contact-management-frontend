@@ -1,5 +1,5 @@
 import Banner from "@/components/Pages/HomePage/Banner/Banner";
-import ContactCard from "@/components/Pages/HomePage/ContactCard/ContactCard";
+import CrudOperationUi from "@/components/Pages/HomePage/CrudUi/CrudOperationUi";
 import EffectBanner from "@/components/Pages/HomePage/EffectBanner/EffectBanner";
 
 const HomePage = async () => {
@@ -7,7 +7,7 @@ const HomePage = async () => {
     <>
       <Banner />
       <EffectBanner />
-      <ContactCard />
+      <CrudOperationUi />
     </>
   );
 };

@@ -24,3 +24,16 @@ body {
     @apply bg-[#0FFBF9];
   }
 }
+
+@layer utilities {
+  .clip-hexagon {
+    clip-path: polygon(
+      25% 6.7%,
+      75% 6.7%,
+      100% 50%,
+      75% 93.3%,
+      25% 93.3%,
+      0% 50%
+    );
+  }
+}
