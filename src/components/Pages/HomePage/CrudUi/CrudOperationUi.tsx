@@ -4,14 +4,18 @@ import {
   hexagonalAnimateParient,
 } from "@/animate/hexagonal.animate";
 import Hexagonal from "@/components/ui/Hexagonal/Hexagonal";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const CrudOperationUi = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
   return (
     <motion.div
+      ref={ref}
       variants={hexagonalAnimateParient}
       initial="hidden"
-      whileInView="visible"
+      animate={inView ? "visible" : "hidden"}
       viewport={{ once: true }}
       className="grid grid-cols-2 md:grid-cols-4 md:p-5 mt-8"
     >

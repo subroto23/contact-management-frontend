@@ -11,7 +11,6 @@ const HomePage = async () => {
       <EffectBanner />
       <CrudOperationUi />
       <SubscribeNewsLetter />
-      <Footer />
     </>
   );
 };

@@ -1,4 +1,5 @@
 // import Footer from "@/components/Shared/Footer";
+import Footer from "@/components/Shared/Footer";
 import Navbar from "@/components/Shared/Navbar";
 import Container from "@/components/ui/Container/Container";
 import React from "react";
@@ -9,6 +10,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       <Container>
         <Navbar />
         <div className=" overflow-x-hidden">{children}</div>
+        <Footer />
       </Container>
       {/* <Footer /> */}
     </>

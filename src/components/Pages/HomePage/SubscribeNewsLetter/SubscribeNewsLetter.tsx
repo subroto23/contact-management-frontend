@@ -1,16 +1,19 @@
 "use client";
 import { subscribeAnimate } from "@/animate/Subscribe.animate";
 import GredentBorder from "@/components/ui/GredientBorder/GredientBorder";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const SubscribeNewsLetter = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
   return (
     <>
       <motion.div
+        ref={ref}
         variants={subscribeAnimate}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+        animate={inView ? "visible" : "hidden"}
         className="md:p-10 mx-1 mt-16"
       >
         <GredentBorder

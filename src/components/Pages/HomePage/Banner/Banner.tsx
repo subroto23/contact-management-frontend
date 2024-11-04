@@ -7,18 +7,21 @@ import {
 } from "@/animate/banner.animate";
 import pattern from "@/assets/images/Pattern.png";
 import manPhoto from "@/assets/images/manPhoto.png";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const Banner = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
   return (
     <>
-      <div className="relative h-full overflow-hidden">
+      <div ref={ref} className="relative h-full overflow-hidden">
         {/* Background  */}
         <div>
           <motion.div
             variants={backgroundImage}
             initial="hidden"
-            animate="animate"
+            animate={inView ? "animate" : "hidden"}
             className="banner-blur-container"
           ></motion.div>
           {/* Background overlay top*/}
@@ -38,7 +41,7 @@ const Banner = () => {
         <motion.div
           variants={textAnimateParient}
           initial="hidden"
-          animate="visible"
+          animate={inView ? "visible" : "hidden"}
           className="md:py-16 "
         >
           {/*Left Content */}
