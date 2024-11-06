@@ -2,17 +2,21 @@
 import {
   backgroundImage,
   blurColorAnimate,
+  characterAnimationChildren,
+  characterAnimationParient,
   textAnimateChild,
   textAnimateParient,
 } from "@/animate/banner.animate";
 import pattern from "@/assets/images/Pattern.png";
 import manPhoto from "@/assets/images/manPhoto.png";
-import { motion, useInView } from "framer-motion";
+import { delay, motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const Banner = () => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref);
+  const text = "Way";
+
   return (
     <>
       <div ref={ref} className="relative h-full overflow-hidden">
@@ -46,30 +50,39 @@ const Banner = () => {
         >
           {/*Left Content */}
           <motion.div
-            variants={textAnimateParient}
+            variants={textAnimateChild}
             className="py-6 px-10 col-span-2"
           >
-            <motion.h1 variants={textAnimateChild} className="first-hedding">
-              Your Way
-            </motion.h1>
-            <motion.span variants={textAnimateChild} className=" effect-text">
-              Your Network
-            </motion.span>
-            <motion.p
-              variants={textAnimateChild}
-              className="md:text-2xl text-sm md:mt-5 mt-2 md:max-w-xl"
-            >
+            {/* Animate Text Effect */}
+            <div className="relative h-full overflow-hidden">
+              {/* Heading text with staggered color wave animation */}
+              <motion.div
+                variants={characterAnimationParient}
+                initial="hidden"
+                animate="visible"
+                className="flex space-x-1 text-4xl font-bold"
+              >
+                <span className="first-hedding">Your </span>
+                {text.split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={characterAnimationChildren}
+                    className="first-hedding"
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </div>
+            <span className=" effect-text">Your Network</span>
+            <p className="md:text-2xl text-sm md:mt-5 mt-2 md:max-w-xl">
               Effortlessly manage your contacts with a powerful tool designed to
               organize, streamline, and simplify all in one place, customized
               for you
-            </motion.p>
-
-            <motion.div
-              variants={textAnimateChild}
-              className="my-9 relative z-10"
-            >
+            </p>
+            <div className="my-9 relative z-10">
               <button className="gredient-button">See more</button>
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
         {/*RightContent */}

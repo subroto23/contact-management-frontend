@@ -1,7 +1,4 @@
-@import "../styles/button.css";
-@import "../styles/typography.css";
-@import "../styles/forms.css";
-@import "../styles/banner.css";
+@import "../styles/index.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
@@ -36,5 +33,15 @@ body {
       25% 93.3%,
       0% 50%
     );
+  }
+
+  .shadow-neon-primaryColor {
+    /* box-shadow: 0 0 20px rgba(96, 66, 255, 0.5), 0 0 30px rgba(96, 66, 255, 0.3); */
+    box-shadow: 0 0 20px rgba(220, 33, 255, 0.5),
+      0 0 30px rgba(220, 33, 255, 0.3);
+  }
+  .shadow-neon-secondaryColor {
+    /* box-shadow: 0 0 20px rgba(96, 66, 255, 0.5), 0 0 30px rgba(96, 66, 255, 0.3); */
+    box-shadow: 0 0 20px rgba(15, 33, 255, 0.5), 0 0 30px rgba(15, 33, 255, 0.3);
   }
 }

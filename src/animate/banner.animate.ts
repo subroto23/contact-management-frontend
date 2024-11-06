@@ -37,8 +37,49 @@ export const backgroundImage = {
   hidden: { x: 570 },
   animate: {
     x: -20,
+    rotate: -3,
+    delay: 2,
+    scale: 1.07,
     transition: {
       duration: 1,
+      rotate: {
+        delay: 3,
+        duration: 6,
+        repeat: Infinity,
+        repeatType: "mirror",
+        ease: "easeInOut",
+      },
+      scale: {
+        delay: 3,
+        duration: 6,
+        repeat: Infinity,
+        repeatDelay: 2,
+        repeatType: "mirror",
+        ease: "easeInOut",
+      },
+    },
+  },
+};
+
+export const characterAnimationParient = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+export const characterAnimationChildren = {
+  hidden: { opacity: 0.8, color: "#FFFFFF" },
+  visible: {
+    opacity: 1,
+    color: ["#DC02D5", "#FFFFFF", "#0FFBF9", "#FFFFFF", "#DC02D5", "#FFFFFF"],
+    transition: {
+      duration: 30,
+      repeat: Infinity,
+      repeatType: "loop",
+      ease: "easeInOut",
     },
   },
 };
