@@ -1,9 +1,7 @@
 "use client";
 import { TContactPayloadData } from "@/components/Types";
-import Image from "next/image";
 import ContactCardEditButton from "./ContactCardEditButton";
 import ContactCardDeleteButton from "./ContactCardDeleteButton";
-import { url } from "inspector";
 import { useState } from "react";
 
 const ContactsCard = ({
@@ -22,7 +20,7 @@ const ContactsCard = ({
       <div className="profile-card pt-12 pb-8 shadow-xl overflow-hidden z-[100] relative cursor-pointer snap-start shrink-0 flex flex-col items-center justify-center gap-3 transition-all duration-300 group bg-primaryColor after:absolute after:inset-1 after:bg-bodyColor rounded-3xl after:rounded-3xl after:-z-50">
         <div className="avatar w-full pt-5 flex items-center justify-center flex-col gap-1">
           <div
-            className="size-36 z-40 border-4 border-white rounded-[40px_40px_50px_40px] group-hover:border-8 group-hover:transition-all group-hover:duration-300 transition-all duration-300 bg-cover origin-center"
+            className="size-32 z-40 border-4 border-white rounded-[30px_30px_40px_30px] group-hover:border-8 group-hover:transition-all group-hover:duration-300 transition-all duration-300 bg-cover origin-center"
             style={{ backgroundImage: `url(${contact.profile_picture})` }}
           >
             <div className="absolute right-5 -top-5">
@@ -35,11 +33,11 @@ const ContactsCard = ({
                   stroke="#ffff"
                   onClick={handleMenuOpen}
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {" "}
@@ -73,7 +71,7 @@ const ContactsCard = ({
           <p className="text-sm font-semibold  my-2">DEVELOPER</p>
         </div>
         <div className="w-full items-center justify-center flex">
-          <ul className="flex flex-col items-start gap-2 has-[:last]:border-b-0 *:inline-flex *:gap-2 *:items-center *:justify-center *:border-b-[1.5px] *:border-b-stone-700 *:border-dotted *:text-sm *:font-semibold *:text-white pb-3">
+          <ul className="flex flex-col items-start gap-2 has-[:last]:border-b-0 *:inline-flex *:gap-2 *:items-center *:justify-center *:border-b-[1.5px] *:border-b-stone-700 *:border-dotted *:text-base *:font-semibold *:text-white pb-3">
             <li>
               <svg
                 id="phone"

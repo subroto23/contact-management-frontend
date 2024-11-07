@@ -42,11 +42,11 @@ const NeonCardBody = ({ contact, idx }: TContactPayload) => {
                       viewBox="0 0 503.876 503.876"
                       className=" cursor-none"
                     >
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
@@ -74,11 +74,11 @@ const NeonCardBody = ({ contact, idx }: TContactPayload) => {
                       stroke="#0FFBF9"
                       className=" cursor-pointer"
                     >
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
@@ -139,11 +139,11 @@ const NeonCardBody = ({ contact, idx }: TContactPayload) => {
                       viewBox="0 0 503.876 503.876"
                       className=" cursor-none"
                     >
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
@@ -171,11 +171,11 @@ const NeonCardBody = ({ contact, idx }: TContactPayload) => {
                       stroke="#0FFBF9"
                       className=" cursor-pointer"
                     >
-                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                       <g
                         id="SVGRepo_tracerCarrier"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></g>
                       <g id="SVGRepo_iconCarrier">
                         {" "}
