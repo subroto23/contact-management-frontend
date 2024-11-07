@@ -1,6 +1,7 @@
 import { neonCardAnimateChild } from "@/animate/neonCard.animate";
 import { TContactPayloadData } from "@/components/Types";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 type TContactPayload = {
   contact: TContactPayloadData;
@@ -9,11 +10,20 @@ type TContactPayload = {
 
 const NeonCardBody = ({ contact, idx }: TContactPayload) => {
   const isClicked = false;
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1 1"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.1, 1]);
+
   return (
     <>
       {idx % 2 === 0 ? (
         <>
           <motion.div
+            ref={ref}
+            style={{ opacity }}
             variants={neonCardAnimateChild}
             className="h-[300px] w-full bg-gradient-to-b from-primaryColor via-secondaryColor to-secondaryColor relative rounded-3xl after:absolute after:inset-1 after:bg-bodyColor after:rounded-3xl  hover:bg-gradient-to-l hover:from-primaryColor hover:via-secondaryColor hover:to-primaryColor cursor-pointer transition-all ease-linear duration-500 group"
           >
@@ -109,6 +119,8 @@ const NeonCardBody = ({ contact, idx }: TContactPayload) => {
       ) : (
         <>
           <motion.div
+            ref={ref}
+            style={{ opacity }}
             variants={neonCardAnimateChild}
             className="h-[300px] w-full bg-gradient-to-b from-secondaryColor via-primaryColor to-primaryColor relative rounded-3xl after:absolute after:inset-1 after:bg-bodyColor after:rounded-3xl  hover:bg-gradient-to-l hover:from-primaryColor hover:via-secondaryColor hover:to-primaryColor cursor-pointer transition-all ease-linear duration-500 group"
           >

@@ -1,11 +1,10 @@
 export const subscribeAnimate = {
-  hidden: { scale: 0.6, opacity: 0 },
+  hidden: { scale: 0.8, opacity: 0 },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 1,
-      delay: 0.2,
+      duration: 0.6,
     },
   },
 };
