@@ -35,7 +35,7 @@ const Modals = ({ isOpen, onClose, children }: TModal) => {
             ref={containerRef}
             onClick={handleOutSideClose}
             className={cn(
-              "bg-white w-full max-w-sm md:max-w-md lg:max-w-lg p-2 rounded-md shadow-lg transition-all duration-300 overflow-x-hidden",
+              "bg-bodyColor w-full max-w-sm md:max-w-md lg:max-w-lg p-2 rounded-md shadow-lg transition-all duration-300 overflow-x-hidden",
               {
                 "h-auto max-h-[90vh] overflow-y-auto overflow-x-hidden": isOpen,
               }
@@ -56,7 +56,7 @@ const CloseButton = () => {
   return (
     <span
       onClick={() => onClose()}
-      className="flex justify-end mr-2 md-range:mt-4 mt-24 md:mt-10 lg:mt-0 text-red-600 hover:text-red-500 cursor-pointer"
+      className="flex justify-end mr-2 md-range:mt-4 mt-24 md:mt-10 lg:mt-0 text-white hover:text-red-500 cursor-pointer"
     >
       Close
     </span>

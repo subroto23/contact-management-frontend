@@ -17,7 +17,7 @@ const InputForm = ({
         id={label}
         {...register}
         placeholder={placeholder}
-        className=" placeholder:text-gray-300 "
+        className=" placeholder:text-gray-300 font-semibold text-black"
       />
       {errors && <span className="text-xs text-red-500">{errors}</span>}
     </div>

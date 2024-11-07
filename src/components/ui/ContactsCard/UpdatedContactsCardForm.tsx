@@ -73,7 +73,7 @@ const UpdatedContactsCardForm = ({ id }: { id: string }) => {
 
   return (
     <>
-      <div className="bg-purple-100 py-6">
+      <div className="bg-bodyColor py-6 mx-3">
         <Form
           onSubmit={handleSubmit(onSubmit) as SubmitHandler<FieldValues>}
           double={true}

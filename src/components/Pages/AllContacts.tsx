@@ -6,7 +6,7 @@ import ContactsCard from "../ui/ContactsCard/ContactsCard";
 const AllContacts = () => {
   const { data, isLoading } = useGetAllContactsQuery({});
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-bodyColor p-4 my-6">
       {isLoading ? (
         <div className="flex justify-center items-center">
           <div className="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />{" "}

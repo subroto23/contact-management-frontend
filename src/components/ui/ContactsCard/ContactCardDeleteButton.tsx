@@ -52,14 +52,14 @@ const ContactCardDeleteButton = ({ id }: { id: string }) => {
   return (
     <div
       onClick={() => handleClickedButtonId(id)}
-      className="hover:shadow-lg transition duration-500 transform-gpu hover:scale-150 cursor-pointer"
+      className="transition duration-500 cursor-pointer flex gap-2"
     >
       <svg
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         stroke="#ad0000"
-        className="w-5 h-5"
+        className="w-5 h-5 transition duration-500"
       >
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
         <g
@@ -78,6 +78,7 @@ const ContactCardDeleteButton = ({ id }: { id: string }) => {
           ></path>{" "}
         </g>
       </svg>
+      Delete
     </div>
   );
 };

@@ -21,13 +21,13 @@ const ContactCardEditButton = ({ id }: { id: string }) => {
       {/* Edit Icon */}
       <div
         onClick={() => handleClickedButtonId(id)}
-        className="hover:shadow-lg transition duration-500 transform-gpu hover:scale-150 cursor-pointer"
+        className="transition duration-500 cursor-pointer flex gap-2"
       >
         <svg
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5 hover:shadow-lg transition duration-500 transform-gpu hover:scale-110 "
+          className="w-5 h-5 transition duration-500"
         >
           <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
           <g
@@ -53,6 +53,7 @@ const ContactCardEditButton = ({ id }: { id: string }) => {
             ></path>{" "}
           </g>
         </svg>
+        Edit
       </div>
       <Modals isOpen={isOpen} onClose={onClose}>
         <UpdatedContactsCardForm id={editedId && editedId} />

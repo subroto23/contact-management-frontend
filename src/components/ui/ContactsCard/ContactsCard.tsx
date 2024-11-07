@@ -1,7 +1,10 @@
+"use client";
 import { TContactPayloadData } from "@/components/Types";
 import Image from "next/image";
 import ContactCardEditButton from "./ContactCardEditButton";
 import ContactCardDeleteButton from "./ContactCardDeleteButton";
+import { url } from "inspector";
+import { useState } from "react";
 
 const ContactsCard = ({
   contact,
@@ -10,102 +13,121 @@ const ContactsCard = ({
   contact: TContactPayloadData;
   buttonShow: boolean;
 }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
-    <div className="mx-auto p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
-      <Image
-        className="rounded-xl object-cover origin-center w-[400px] h-[200px]"
-        src={contact.profile_picture}
-        alt={contact.name.firstName}
-        width={500}
-        height={500}
-      />
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="mt-5 text-2xl font-semibold">
-            {contact.name.firstName} {contact.name.middleName}{" "}
-            {contact.name.lastName}
-          </h1>
-          <p className="">
-            {contact.address.city}, {contact.address.country}
+    <>
+      <div className="profile-card pt-12 pb-8 shadow-xl overflow-hidden z-[100] relative cursor-pointer snap-start shrink-0 flex flex-col items-center justify-center gap-3 transition-all duration-300 group bg-primaryColor after:absolute after:inset-1 after:bg-bodyColor rounded-3xl after:rounded-3xl after:-z-50">
+        <div className="avatar w-full pt-5 flex items-center justify-center flex-col gap-1">
+          <div
+            className="size-36 z-40 border-4 border-white rounded-[40px_40px_50px_40px] group-hover:border-8 group-hover:transition-all group-hover:duration-300 transition-all duration-300 bg-cover origin-center"
+            style={{ backgroundImage: `url(${contact.profile_picture})` }}
+          >
+            <div className="absolute right-5 -top-5">
+              <div>
+                <svg
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#fffff"
+                  className="size-7"
+                  stroke="#ffff"
+                  onClick={handleMenuOpen}
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    {" "}
+                    <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>{" "}
+                  </g>
+                </svg>
+              </div>
+              {isMenuOpen ? (
+                <div className="absolute right-0">
+                  <ul className="menu bg-gray-700 rounded-box w-28">
+                    <li>
+                      <a>
+                        <ContactCardEditButton id={contact?._id} />
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <ContactCardDeleteButton id={contact?._id} />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        </div>
+        <div className="headings *:text-center *:leading-4 my-3">
+          <p className="text-xl font-serif font-semibold">
+            {`${contact?.name?.firstName} ${contact?.name?.middleName} ${contact?.name?.lastName}`}
           </p>
+          <p className="text-sm font-semibold  my-2">DEVELOPER</p>
         </div>
-        {buttonShow && (
-          <div className="flex-end flex gap-2">
-            {/* Edit Icon */}
-            <ContactCardEditButton id={contact?._id} />
-            {/* Delete Icon */}
-            <ContactCardDeleteButton id={contact?._id} />
-          </div>
-        )}
-      </div>
-
-      <div>
-        <div className="border-b mt-3">
-          <div className="py-2 flex items-center">
-            <div className="text-gray-800">
+        <div className="w-full items-center justify-center flex">
+          <ul className="flex flex-col items-start gap-2 has-[:last]:border-b-0 *:inline-flex *:gap-2 *:items-center *:justify-center *:border-b-[1.5px] *:border-b-stone-700 *:border-dotted *:text-sm *:font-semibold *:text-white pb-3">
+            <li>
               <svg
+                id="phone"
                 viewBox="0 0 24 24"
-                fill="none"
+                className="fill-white group-hover:fill-[#58b0e0]"
+                height="15"
+                width="15"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8"
               >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path
-                    d="M10.0376 5.31617L10.6866 6.4791C11.2723 7.52858 11.0372 8.90532 10.1147 9.8278C10.1147 9.8278 10.1147 9.8278 10.1147 9.8278C10.1146 9.82792 8.99588 10.9468 11.0245 12.9755C13.0525 15.0035 14.1714 13.8861 14.1722 13.8853C14.1722 13.8853 14.1722 13.8853 14.1722 13.8853C15.0947 12.9628 16.4714 12.7277 17.5209 13.3134L18.6838 13.9624C20.2686 14.8468 20.4557 17.0692 19.0628 18.4622C18.2258 19.2992 17.2004 19.9505 16.0669 19.9934C14.1588 20.0658 10.9183 19.5829 7.6677 16.3323C4.41713 13.0817 3.93421 9.84122 4.00655 7.93309C4.04952 6.7996 4.7008 5.77423 5.53781 4.93723C6.93076 3.54428 9.15317 3.73144 10.0376 5.31617Z"
-                    fill="#A78BFA"
-                  ></path>{" "}
-                </g>
+                <path d="M0 0h24v24H0V0z" fill="none"></path>
+                <path d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z"></path>
               </svg>
-            </div>
-            <div className="pl-3">
-              <p className="text-sm font-medium text-gray-800 leading-none">
-                {contact.phone}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="border-b">
-          <div className="py-2 flex items-center">
-            <div className="text-gray-800">
+              <p>{contact?.phone}</p>
+            </li>
+            <li>
               <svg
-                viewBox="0 0 24 24"
-                fill="none"
+                className="fill-white group-hover:fill-[#58b0e0]"
+                height="15"
+                width="15"
+                id="mail"
+                viewBox="0 0 32 32"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8"
               >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z"
-                    fill="#A78BFA"
-                  ></path>{" "}
-                </g>
+                <path
+                  d="M16,14.81,28.78,6.6A3,3,0,0,0,27,6H5a3,3,0,0,0-1.78.6Z"
+                  fill="#FFFFFF"
+                ></path>
+                <path
+                  d="M16.54,16.84h0l-.17.08-.08,0A1,1,0,0,1,16,17h0a1,1,0,0,1-.25,0l-.08,0-.17-.08h0L2.1,8.26A3,3,0,0,0,2,9V23a3,3,0,0,0,3,3H27a3,3,0,0,0,3-3V9a3,3,0,0,0-.1-.74Z"
+                  fill="#FFFFF"
+                ></path>
               </svg>
-            </div>
-            <div className="pl-3">
-              <p className="text-sm font-medium text-gray-800 leading-none">
-                {contact.email}
-              </p>
-            </div>
-          </div>
+              <p>{contact?.email}</p>
+            </li>
+            <li>
+              <svg
+                id="map"
+                viewBox="0 0 16 16"
+                className="fill-white group-hover:fill-[#58b0e0]"
+                height="15"
+                width="15"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 0C5.2 0 3 2.2 3 5s4 11 5 11 5-8.2 5-11-2.2-5-5-5zm0 8C6.3 8 5 6.7 5 5s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"
+                  fill="#FFFFF"
+                ></path>
+              </svg>
+              <p>{`${contact?.address?.city}, ${contact?.address?.country}`}</p>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
