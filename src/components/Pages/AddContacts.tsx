@@ -41,19 +41,19 @@ const AddContactsPage = () => {
   return (
     <>
       <Container>
-        <div className="bg-purple-100 py-6">
+        <div className="py-6 md:my-16 my-6">
           <Form
             onSubmit={handleSubmit(onSubmit) as SubmitHandler<FieldValues>}
             double={true}
           >
-            <div className="max-w-3xl mx-auto text-center mt-1">
+            <div className="max-w-3xl mx-auto text-center mt-1 mb-12">
               <h1 className="text-4xl font-bold text-gray-900 leading-tight mb-2 pb-4 relative">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
                   Add a New Contact
                 </span>
                 <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500"></span>
               </h1>
-              <p className="text-lg text-gray-800 mb-8">
+              <p className="text-lg mb-8">
                 You can expand this with more specific fields based on your
                 requirements!
               </p>

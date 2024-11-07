@@ -13,7 +13,7 @@ export const Form = ({ onSubmit, children, double = false }: TForm) => {
       <form
         onSubmit={onSubmit}
         className={cn(
-          `border border-gray-300 shadow-sm rounded-lg w-full p-5 mx-auto pt-8 bg-gray-100`,
+          ` rounded-lg w-full p-5 mx-auto pt-8 shadow-[0_15px_60px_#0FFBF9]`,
           {
             "max-w-5xl": double,
             "max-w-md": !double,
