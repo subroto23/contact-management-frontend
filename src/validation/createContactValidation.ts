@@ -71,6 +71,9 @@ const updateUserNameValidationSchema = z.object({
       invalid_type_error: "First name must be a string.",
     })
     .trim()
+    .nonempty("First Name is Required")
+    .min(3, "First name must be at least 3 characters long.")
+    .max(20, "First name must not exceed 20 characters.")
     .optional(),
   middleName: z.string().optional(),
   lastName: z
@@ -78,6 +81,9 @@ const updateUserNameValidationSchema = z.object({
       invalid_type_error: "Last name must be a string.",
     })
     .trim()
+    .nonempty("Last Name is Required")
+    .min(3, "Last name must be at least 3 characters long.")
+    .max(20, "Last name must not exceed 20 characters.")
     .optional(),
 });
 
@@ -88,12 +94,16 @@ const updateUserAddressValidationSchema = z.object({
       invalid_type_error: "City name must be a string.",
     })
     .trim()
+    .nonempty("City Name is Required")
+    .min(3, "City name must be at least 3 characters long.")
+    .max(20, "City name must not exceed 20 characters.")
     .optional(),
   country: z
     .string({
       invalid_type_error: "Country name must be a string.",
     })
     .trim()
+    .nonempty("Country Name is Required")
     .optional(),
 });
 // update Contact Validation Schema
@@ -103,7 +113,7 @@ export const updateZodValidation = z.object({
   phone: z
     .string()
     .trim()
-    .trim()
+    .nonempty("Phone Number is Required")
     .refine((val) => /^[+]?[0-9]*$/.test(val), {
       message: "Phone number must contain only digits and optional leading +.",
     })
@@ -113,5 +123,6 @@ export const updateZodValidation = z.object({
     .string({
       invalid_type_error: "Profile Photo Is Web Link Type.",
     })
+    .nonempty("Profile Photo Url is Required")
     .optional(),
 });
