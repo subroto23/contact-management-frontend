@@ -84,7 +84,7 @@ const UpdatedContactsCardForm = ({ id }: { id: string }) => {
               register={register("name.firstName")}
               type={"text"}
               label={"First Name"}
-              placeholder={"Subroto"}
+              placeholder={"Write First Name"}
               errors={errors?.name?.firstName?.message}
             />
 
@@ -93,7 +93,7 @@ const UpdatedContactsCardForm = ({ id }: { id: string }) => {
               register={register("name.middleName")}
               type={"text"}
               label={"Middle Name"}
-              placeholder={"Kumar"}
+              placeholder={"Write Middle Name"}
               errors={errors?.name?.middleName?.message}
             />
 
@@ -102,7 +102,7 @@ const UpdatedContactsCardForm = ({ id }: { id: string }) => {
               register={register("name.lastName")}
               type={"text"}
               label={"Last Name"}
-              placeholder={"Das"}
+              placeholder={"Write Last Name"}
               errors={errors?.name?.lastName?.message}
             />
             {/* Phone Number Input Form */}
@@ -134,7 +134,7 @@ const UpdatedContactsCardForm = ({ id }: { id: string }) => {
               register={register("address.city")}
               type={"text"}
               label={"Your City"}
-              placeholder={"Faridpur"}
+              placeholder={"Write Your city"}
               errors={errors?.address?.city?.message}
             />
             {/* Address Country Input Form */}
@@ -142,7 +142,7 @@ const UpdatedContactsCardForm = ({ id }: { id: string }) => {
               register={register("address.country")}
               type={"text"}
               label={"Your Country"}
-              placeholder={"Bangladesh"}
+              placeholder={"Write your country"}
               errors={errors?.address?.country?.message}
             />
           </FormContainer>

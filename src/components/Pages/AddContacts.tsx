@@ -73,7 +73,7 @@ const AddContactsPage = () => {
                 register={register("name.middleName")}
                 type={"text"}
                 label={"Middle Name"}
-                placeholder={"Enter your first middle  name"}
+                placeholder={"Enter your middle name"}
                 errors={errors?.name?.middleName?.message}
               />
 

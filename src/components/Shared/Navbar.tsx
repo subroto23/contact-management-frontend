@@ -3,7 +3,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { navLogo } from "@/animate/Navbar.animate";
 import { usePathname } from "next/navigation";
-import Container from "../ui/Container/Container";
 
 const Navbar = () => {
   const currentPath = usePathname();
@@ -11,22 +10,30 @@ const Navbar = () => {
     <>
       <Link
         href={"/contacts"}
-        className={` hover:text-gray-200 text-xl font-semibold ${
-          currentPath === "/contacts" ? "text-[#0FFBF9]" : "text-white"
-        }`}
+        className={` hover:text-gray-200 text-xl font-semibold `}
       >
         <li>
-          <span>All Contacts</span>
+          <span
+            className={`${
+              currentPath === "/contacts" ? "text-[#0FFBF9]" : "text-white"
+            }`}
+          >
+            All Contacts
+          </span>
         </li>
       </Link>
       <Link
         href={"/add-contact"}
-        className={` hover:text-gray-200 text-xl font-semibold ${
-          currentPath === "/add-contact" ? "text-[#0FFBF9]" : "text-white"
-        }`}
+        className={` hover:text-gray-200 text-xl font-semibold`}
       >
         <li>
-          <span>Add Contacts</span>
+          <span
+            className={`${
+              currentPath === "/add-contact" ? "text-[#0FFBF9]" : "text-white"
+            }`}
+          >
+            Add Contacts
+          </span>
         </li>
       </Link>
     </>
@@ -83,7 +90,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-bodyColor rounded-box z-[1] mt-3 w-40 p-2 shadow border-2 border-secondaryColor"
           >
             {navLink}
           </ul>
