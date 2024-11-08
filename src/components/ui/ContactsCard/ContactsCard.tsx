@@ -73,7 +73,7 @@ const ContactsCard = ({
               </div>
               {isMenuOpen ? (
                 <div className="absolute right-0">
-                  <ul className="menu bg-gray-700 rounded-box w-28">
+                  <ul className="menu bg-bodyColor border-4 border-secondaryColor rounded-box w-40">
                     <li>
                       <span>
                         <ContactCardEditButton id={contact?._id} />
@@ -86,7 +86,7 @@ const ContactsCard = ({
                     </li>
                     <li>
                       <span>
-                        <ContactFavouriteSorting />
+                        <ContactFavouriteSorting id={contact?._id} />
                       </span>
                     </li>
                   </ul>
