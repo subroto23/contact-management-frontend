@@ -5,7 +5,7 @@ const contactApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createContact: build.mutation({
       query: (data) => ({
-        url: "/create-contact",
+        url: "/contact/create-contact",
         method: "POST",
         body: data,
         headers: {
@@ -18,7 +18,7 @@ const contactApi = baseApi.injectEndpoints({
     //Get All Contacts
     getAllContacts: build.query({
       query: (arg: Record<string, any>) => ({
-        url: "/",
+        url: "/contact/",
         method: "GET",
         params: arg,
       }),
@@ -29,7 +29,7 @@ const contactApi = baseApi.injectEndpoints({
     //Get Single Contact
     getSingleContact: build.query({
       query: ({ id }) => ({
-        url: `/${id}`,
+        url: `/contact/${id}`,
         method: "GET",
       }),
       providesTags: [TagTypes.CONTACT],
@@ -38,7 +38,7 @@ const contactApi = baseApi.injectEndpoints({
     //Delete Contact
     deleteContact: build.mutation({
       query: (id) => ({
-        url: `/${id}`,
+        url: `/contact/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: [TagTypes.CONTACT],
@@ -47,7 +47,7 @@ const contactApi = baseApi.injectEndpoints({
     //update Contact
     updateContact: build.mutation({
       query: ({ id, ...data }) => ({
-        url: `/update-contact/${id}`,
+        url: `/contact/update-contact/${id}`,
         method: "PATCH",
         body: data,
         headers: {

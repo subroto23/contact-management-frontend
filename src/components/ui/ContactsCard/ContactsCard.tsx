@@ -3,6 +3,11 @@ import { TContactPayloadData } from "@/components/Types";
 import ContactCardEditButton from "./ContactCardEditButton";
 import ContactCardDeleteButton from "./ContactCardDeleteButton";
 import { useState } from "react";
+import {
+  useCreateContactReactionMutation,
+  useGetAllContactsReactionQuery,
+} from "@/redux/api/contactReactionApi";
+import ContactFavouriteSorting from "./FavouriteSortingData";
 
 const ContactsCard = ({
   contact,
@@ -11,19 +16,34 @@ const ContactsCard = ({
   contact: TContactPayloadData;
   buttonShow: boolean;
 }) => {
+  const [createReaction] = useCreateContactReactionMutation();
+  const { data, isLoading } = useGetAllContactsReactionQuery({});
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  if (isLoading) {
+    return;
+  }
+  //Handle Menu Option
   const handleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const isLoved = false;
-
-  const handleLovedClickd = (id: string): any => {
-    console.log(id);
+  //Handle Loved Chaking
+  const handleLovedClickd = async (id: string) => {
+    const data = {
+      id,
+      loved: true,
+    };
+    await createReaction(data).unwrap();
   };
+
+  //Checking Existing Reactions
+  const isLoved = data?.data?.find(
+    (el: any) => el.id === contact?._id && el.loved
+  );
   return (
     <>
-      <div className="profile-card pt-12 pb-8 shadow-xl overflow-hidden z-[100] relative cursor-pointer snap-start shrink-0 flex flex-col items-center justify-center gap-3 transition-all duration-300 group bg-primaryColor after:absolute after:inset-1 after:bg-bodyColor rounded-3xl after:rounded-3xl after:-z-50">
+      <div className="profile-card pt-12 pb-8 shadow-xl overflow-hidden z-[100] relative cursor-default snap-start shrink-0 flex flex-col items-center justify-center gap-3 transition-all duration-300 group bg-primaryColor after:absolute after:inset-1 after:bg-bodyColor rounded-3xl after:rounded-3xl after:-z-50">
         <div className="avatar w-full pt-5 flex items-center justify-center flex-col gap-1">
           <div
             className="size-32 z-40 border-4 border-white rounded-[30px_30px_40px_30px] group-hover:border-8 group-hover:transition-all group-hover:duration-300 transition-all duration-300 bg-cover origin-center"
@@ -55,36 +75,42 @@ const ContactsCard = ({
                 <div className="absolute right-0">
                   <ul className="menu bg-gray-700 rounded-box w-28">
                     <li>
-                      <a>
+                      <span>
                         <ContactCardEditButton id={contact?._id} />
-                      </a>
+                      </span>
                     </li>
                     <li>
-                      <a>
+                      <span>
                         <ContactCardDeleteButton id={contact?._id} />
-                      </a>
+                      </span>
+                    </li>
+                    <li>
+                      <span>
+                        <ContactFavouriteSorting />
+                      </span>
                     </li>
                   </ul>
                 </div>
               ) : null}
             </div>
-            {/* <div className="absolute left-5 -top-5">
+            <div className="absolute left-5 -top-5">
               {isLoved ? (
                 <>
                   <svg
-                    fill="#ffff"
+                    fill="#ffd70f"
                     version="1.1"
                     id="Capa_1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 356.98 356.98"
                     stroke=""
-                    className="size-8"
+                    className="size-6 cursor-pointer"
+                    onClick={() => handleLovedClickd(contact?._id)}
                   >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                     <g
                       id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     ></g>
                     <g id="SVGRepo_iconCarrier">
                       {" "}
@@ -104,18 +130,18 @@ const ContactsCard = ({
               ) : (
                 <>
                   <svg
-                    onClick={handleLovedClickd(contact?._id)}
+                    onClick={() => handleLovedClickd(contact?._id)}
                     fill="#ffffff"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                     stroke="#ffffff"
-                    className="size-8 cursor-pointer "
+                    className="size-6 cursor-pointer "
                   >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                     <g
                       id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     ></g>
                     <g id="SVGRepo_iconCarrier">
                       <path d="M20.5,4.609A5.811,5.811,0,0,0,16,2.5a5.75,5.75,0,0,0-4,1.455A5.75,5.75,0,0,0,8,2.5,5.811,5.811,0,0,0,3.5,4.609c-.953,1.156-1.95,3.249-1.289,6.66,1.055,5.447,8.966,9.917,9.3,10.1a1,1,0,0,0,.974,0c.336-.187,8.247-4.657,9.3-10.1C22.45,7.858,21.453,5.765,20.5,4.609Zm-.674,6.28C19.08,14.74,13.658,18.322,12,19.34c-2.336-1.41-7.142-4.95-7.821-8.451-.513-2.646.189-4.183.869-5.007A3.819,3.819,0,0,1,8,4.5a3.493,3.493,0,0,1,3.115,1.469,1.005,1.005,0,0,0,1.76.011A3.489,3.489,0,0,1,16,4.5a3.819,3.819,0,0,1,2.959,1.382C19.637,6.706,20.339,8.243,19.826,10.889Z"></path>
@@ -123,7 +149,7 @@ const ContactsCard = ({
                   </svg>
                 </>
               )}
-            </div> */}
+            </div>
           </div>
         </div>
         <div className="headings *:text-center *:leading-4 my-3">
