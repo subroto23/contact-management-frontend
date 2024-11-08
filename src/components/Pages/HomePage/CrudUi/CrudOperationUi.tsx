@@ -9,7 +9,7 @@ import { useRef } from "react";
 
 const CrudOperationUi = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref);
+  const inView = useInView(ref, { once: true });
   return (
     <motion.div
       ref={ref}

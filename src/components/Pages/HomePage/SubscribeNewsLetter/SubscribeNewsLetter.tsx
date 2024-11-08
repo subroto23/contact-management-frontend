@@ -6,7 +6,7 @@ import { useRef } from "react";
 
 const SubscribeNewsLetter = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref);
+  const inView = useInView(ref, { once: true });
   return (
     <>
       <motion.div

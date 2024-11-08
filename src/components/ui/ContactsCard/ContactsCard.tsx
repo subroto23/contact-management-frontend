@@ -68,7 +68,6 @@ const ContactsCard = ({
           <p className="text-xl font-serif font-semibold">
             {`${contact?.name?.firstName} ${contact?.name?.middleName} ${contact?.name?.lastName}`}
           </p>
-          <p className="text-sm font-semibold  my-2">DEVELOPER</p>
         </div>
         <div className="w-full items-center justify-center flex">
           <ul className="flex flex-col items-start gap-2 has-[:last]:border-b-0 *:inline-flex *:gap-2 *:items-center *:justify-center *:border-b-[1.5px] *:border-b-stone-700 *:border-dotted *:text-base *:font-semibold *:text-white pb-3">

@@ -10,6 +10,7 @@ import {
 import pattern from "@/assets/images/Pattern.png";
 import manPhoto from "@/assets/images/manPhoto.png";
 import { delay, motion, stagger, useAnimate, useInView } from "framer-motion";
+import Link from "next/link";
 import { useRef } from "react";
 
 const Banner = () => {
@@ -81,7 +82,11 @@ const Banner = () => {
               for you
             </p>
             <div className="my-9 relative z-10">
-              <button className="gredient-button">See more</button>
+              <Link href="/add-contact">
+                <button className="gredient-button uppercase">
+                  New Contact
+                </button>
+              </Link>
             </div>
           </motion.div>
         </motion.div>
