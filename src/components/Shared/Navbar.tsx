@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { navLogo } from "@/animate/Navbar.animate";
 import { usePathname } from "next/navigation";
+import Container from "../ui/Container/Container";
 
 const Navbar = () => {
   const currentPath = usePathname();
