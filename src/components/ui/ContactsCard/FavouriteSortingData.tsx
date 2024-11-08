@@ -21,6 +21,8 @@ const ContactFavouriteSorting = ({ id }: { id: string }) => {
       );
       if (selectedReaction) {
         setIsLoved(selectedReaction.loved);
+      } else {
+        setIsLoved(false);
       }
     }
   }, [reactionData, id]);
